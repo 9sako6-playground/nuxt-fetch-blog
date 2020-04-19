@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 export default {
   mode: 'universal',
@@ -28,6 +29,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/vue-placeholders'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -38,6 +40,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxt/http'
   ],
   /*
   ** Build configuration
@@ -46,7 +49,13 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
+  },
+  env: {
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+    ENVIRONMENT_ID: process.env.ENVIRONMENT_ID,
+    SPACE_ID: process.env.SPACE_ID,
+    CONTENT_TYPE: process.env.CONTENT_TYPE
   }
 }
